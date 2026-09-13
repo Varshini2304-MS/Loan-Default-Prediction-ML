@@ -51,3 +51,18 @@ An interactive Streamlit application was developed where users can enter custome
 - random_forest_loan_default_model.pkl – trained machine learning model
 - requirements.txt – required Python libraries
 - Loan_Default_Prediction.ipynb – analysis and model development notebook
+## 10. How to Run the Project
+
+### Install Libraries
+
+```bash
+pip install -r requirements.txt
+```
+
+### Run Streamlit Application
+
+```bash
+streamlit run app.py
+```
+
+The application will open in your browser at http://localhost:8501
