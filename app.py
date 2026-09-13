@@ -1,4 +1,3 @@
-
 import streamlit as st
 import pandas as pd
 import joblib
@@ -56,4 +55,29 @@ if st.button("Predict Default Risk"):
         "PAY_0", "PAY_2", "PAY_3", "PAY_4", "PAY_5", "PAY_6",
         "BILL_AMT1", "BILL_AMT2", "BILL_AMT3", "BILL_AMT4",
         "BILL_AMT5", "BILL_AMT6",
-        "PAY_AMT1", "PAY_AMT2", "PAY_AMT3", "PAY_AM
+        "PAY_AMT1", "PAY_AMT2", "PAY_AMT3",
+        "PAY_AMT4", "PAY_AMT5", "PAY_AMT6"
+    ])
+
+    prediction = model.predict(input_data)[0]
+
+    if prediction == 1:
+        st.error("⚠ High Risk: Customer is likely to default.")
+
+        st.subheader("Business Recommendation")
+        st.write("""
+        - Perform additional credit-risk verification.
+        - Reduce credit limit if necessary.
+        - Monitor repayment behaviour closely.
+        - Offer repayment assistance or reminders.
+        """)
+
+    else:
+        st.success("✅ Low Risk: Customer is unlikely to default.")
+
+        st.subheader("Business Recommendation")
+        st.write("""
+        - Customer is eligible for normal credit approval.
+        - Continue standard repayment monitoring.
+        - Consider loyalty or credit enhancement offers.
+        """)
